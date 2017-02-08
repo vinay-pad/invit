@@ -14,9 +14,6 @@ class Event(models.Model):
     updated_at = models.DateTimeField(null=True)
     participants = models.ManyToManyField(User, through='membership.Membership', related_name="participating_in")
 
-    def get_event_owner(self):
-        return self.owner.username
-
     def save(self, *args, **kwargs):
         if not self.id:
             logger.debug("Event "+str(self.name)+" created.")
