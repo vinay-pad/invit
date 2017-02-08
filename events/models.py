@@ -12,6 +12,7 @@ class Event(models.Model):
     owner = models.ForeignKey(User, related_name="events_owned", on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(editable=False)
     updated_at = models.DateTimeField(null=True)
+    participants = models.ManyToManyField(User, through='membership.Membership', related_name="participating_in")
 
     def get_event_owner(self):
         return self.owner.username

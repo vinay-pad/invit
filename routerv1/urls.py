@@ -7,4 +7,5 @@ urlpatterns = [
 
     url(r'^events/', include('events.urls')),
     url(r'^users/', include('users.urls')),
+    url(r'^membership/', include('membership.urls')),
 ]

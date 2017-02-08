@@ -11,5 +11,4 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
         Token.objects.create(user=instance)
 
 class User(AbstractUser):
-    def get_user_id(self):
-        return self.id
+    pass

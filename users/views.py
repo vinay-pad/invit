@@ -5,13 +5,9 @@ from users.models import User
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-class UserList(APIView):
-    #queryset = User.objects.all()
-    #serializer_class = UserSerializer
-    def get(self, request, format=None):
-        users = User.objects.all()
-        serializer = UserSerializer(users, many=True)
-        return Response(serializer.data)
+class UserList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
